@@ -8,21 +8,21 @@ import pages.HomePage;
 @Execution(ExecutionMode.CONCURRENT)
 public class LoginTest extends BaseTest {
     @Test
-    public void invalidLoginTest_InvalidUserNameInvalidPassword () {
+    public void invalidLoginTest_InvalidUserNameInvalidPassword() {
         page.getPage(HomePage.class)
-                .GivenIAmAtHomePage()
-                .WhenIGoToLoginPage()
-                .AndIloginToN11("onur@swtestacademy.com", "11223344")
-                .ThenIVerifyPasswordErrorMessage(("E-posta adresiniz veya şifreniz hatalı"));
+            .givenIAmAtHomePage()
+            .whenIGoToLoginPage()
+            .andILoginToN11("onur@swtestacademy.com", "11223344")
+            .thenIVerifyLogEntryFailMessage();
     }
 
     @Test
-    public void invalidLoginTest_EmptyUserEmptyPassword () {
+    public void invalidLoginTest_EmptyUserEmptyPassword() {
         page.getPage(HomePage.class)
-                .GivenIAmAtHomePage()
-                .WhenIGoToLoginPage()
-                .AndIloginToN11("","")
-                .ThenIVerifyLoginUserNameErrorMessage("Lütfen e-posta adresinizi girin.")
-                .ThenIVerifyPasswordErrorMessage("Bu alanın doldurulması zorunludur.");
+            .givenIAmAtHomePage()
+            .whenIGoToLoginPage()
+            .andILoginToN11("", "")
+            .thenIVerifyLoginUserNameErrorMessage("Lütfen e-posta adresinizi girin.")
+            .thenIVerifyPasswordErrorMessage("Bu alanın doldurulması zorunludur.");
     }
 }

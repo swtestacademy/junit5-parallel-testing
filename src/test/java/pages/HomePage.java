@@ -6,11 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class HomePage extends BasePage {
 
     //*********Constructor*********
-    public HomePage (WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -23,14 +22,14 @@ public class HomePage extends BasePage {
 
     //*********Page Methods*********
     //Go to Homepage
-    public HomePage GivenIAmAtHomePage(){
+    public HomePage givenIAmAtHomePage() {
         driver.get(baseURL);
         return this;
     }
 
     //Go to LoginPage
-    public LoginPage WhenIGoToLoginPage(){
+    public LoginPage whenIGoToLoginPage() {
         click(signInButton);
-        return new PageFactory().initElements(driver,LoginPage.class);
+        return new PageFactory().initElements(driver, LoginPage.class);
     }
 }
